@@ -9,12 +9,25 @@ function drawGrid(input){
     for(let i = 0; i < (input * input); i++){
         const div = document.createElement('div');
         div.classList.add('pixel');
-        div.style.cssText = 'box-sizing: border-box; background-color: black; border: 1px solid gray; padding: 0';
+        div.style.cssText = 'box-sizing: border-box; background-color: black; border: 1px solid gray;';
         div.style.height = div.style.width = 960 / input + 'px';
         container.appendChild(div);
     };
 };
 
+//rgb effect 
+
+function rgb(){
+
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+
+    let rgb = 'rgb('+ red + ', ' + green + ', ' + blue + ')'; 
+
+    return rgb;
+
+}
 //"pixel" hover effect
 pixelEffect();
 
@@ -23,7 +36,7 @@ function pixelEffect(){
 
     pixel.forEach(pixel => {
         pixel.addEventListener('mouseover', () => {
-            pixel.style.backgroundColor = 'green';
+            pixel.style.backgroundColor = rgb();
         });
     });
 };
